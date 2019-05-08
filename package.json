@@ -4,6 +4,8 @@
   "description": "Checks the status of the current canvas theme against the desired canvas theme. ",
   "main": "main.js",
   "scripts": {
+    "start": "node bin.js",
+    "set-correct": "node bin-set-correct.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/byuitechops/canvas-theme-status/issues"
   },
-  "homepage": "https://github.com/byuitechops/canvas-theme-status#readme"
+  "homepage": "https://github.com/byuitechops/canvas-theme-status#readme",
+  "dependencies": {
+    "canvas-api-wrapper": "git+https://github.com/byuitechops/canvas-api-wrapper.git",
+    "luxon": "^1.13.1",
+    "p-map": "^2.1.0",
+    "pdfkit": "^0.9.1",
+    "puppeteer": "^1.15.0"
+  }
 }
