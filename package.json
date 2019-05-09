@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/byuitechops/canvas-theme-status#readme",
   "dependencies": {
-    "canvas-api-wrapper": "git+https://github.com/byuitechops/canvas-api-wrapper.git",
     "luxon": "^1.13.1",
     "p-map": "^2.1.0",
     "pdfkit": "^0.9.1",

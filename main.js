@@ -1,5 +1,6 @@
 const pMap = require('p-map');
 const pupeteer = require('puppeteer');
+const tasks = require('./tasks/tasks.js');
 
 let browser;
 let filepath;
@@ -7,22 +8,17 @@ let filepath;
  * Module Description
  *************************************************************************/
 
-async function navigateToModuleItem(moduleItem) {
+async function doModuleTasks(task) {
     const page = await browser.newPage();
     page.setViewport({
         width: 1920,
         height: 1080
     });
-    await page.goto(moduleItem.html_url);
-    await page.click('#byui-copyright');
-    await page.screenshot({
-        path: `${filepath}/${moduleItem.title}.png`,
-    });
-    console.log(`Screenshot Taken: ${moduleItem.title}.png`);
-    await page.close();
+    task.filepath = filepath;
+    await task.doTask(page);
 }
 
-async function main(moduleItems, _filepath = './screenshots') {
+async function main(_filepath = './screenshots') {
     filepath = _filepath;
     // Loop through each object to allow Pupeteer to go to each HTML page
     browser = await pupeteer.launch({
@@ -34,12 +30,12 @@ async function main(moduleItems, _filepath = './screenshots') {
     await page.$eval('input#pseudonym_session_password', el => el.value = '');
     await page.click('#login_form > div.ic-Login__actions > div.ic-Form-control.ic-Form-control--login > button');
     await page.close();
-    await pMap(moduleItems, navigateToModuleItem, {
+    await pMap(tasks, doModuleTasks, {
         concurrency: 10
     });
     await browser.close();
     console.log('Screenshots Taken');
-    return;
+    return tasks;
 }
 
 module.exports = {
