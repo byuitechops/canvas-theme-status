@@ -1,8 +1,29 @@
 let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
 
+/************************************************
+ *               copyrightFooter
+ * 
+ * Parameters:
+ *  1. page: Object[Pupeteer]
+ * 
+ * Description:
+ *  The copyrightFooter task's purpose is to take
+ *  a screenshot of the page to capture if the 
+ *  copyright footer appears at the bottom
+ * 
+ * Return Type:
+ *  Void
+ * 
+ * Author(s):
+ *  Cal Wilson
+ * 
+ ************************************************/
 async function copyrightFooter(page) {
+    // Go to the page
     await page.goto(taskObject.url);
+    // Take a screenshot of the page
     await takeScreenshot(page, taskObject);
+    // Close the page/tab
     await page.close();
 }
 

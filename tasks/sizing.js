@@ -1,8 +1,29 @@
 let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
 
+/************************************************
+ *                    sizing
+ * 
+ * Parameters:
+ *  1. page: Object[Pupeteer]
+ * 
+ * Description:
+ *  The sizing task's purpose is to take a
+ *  screenshot of the page centered around the
+ *  images of different sizes on the page.
+ * 
+ * Return Type:
+ *  Void
+ * 
+ * Author(s):
+ *  Cal Wilson
+ * 
+ ************************************************/
 async function sizing(page) {
+    // Go to the page
     await page.goto(taskObject.url);
+    // Take a screenshot of the page
     await takeScreenshot(page, taskObject);
+    // Close the page/tab
     await page.close();
 }
 

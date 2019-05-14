@@ -14,6 +14,8 @@ const carouselSlickjsSecond = require('./carouselSlickjsSecond.js');
 const WYSIWYGStyleInjection = require('./WYSIWYGStyleInjection.js');
 const positioning = require('./positioning.js');
 
+// To add another task, require it above and add it to the list below
+
 module.exports = [
     accordionOpen,
     accordionClose,

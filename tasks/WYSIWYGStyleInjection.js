@@ -1,8 +1,29 @@
 let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
 
+/************************************************
+ *             WYSIWYGStyleInjection
+ * 
+ * Parameters:
+ *  1. page: Object[Pupeteer]
+ * 
+ * Description:
+ *  The WYSIWYGStyleInjection task's purpose is
+ *  to take a screenshot to verify that the
+ *  style injection is working properly.
+ * 
+ * Return Type:
+ *  Void
+ * 
+ * Author(s):
+ *  Cal Wilson
+ * 
+ ************************************************/
 async function WYSIWYGStyleInjection(page) {
+    // Go to the page
     await page.goto(taskObject.url);
+    // Take a screenshot of the page.
     await takeScreenshot(page, taskObject, '#edit_assignment_link');
+    // Close the page/tab
     await page.close();
 }
 
