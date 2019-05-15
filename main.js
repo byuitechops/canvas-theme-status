@@ -66,8 +66,8 @@ async function main(_filepath = './screenshots') {
     // Log-in to Canvas
     const page = await browser.newPage();
     await page.goto('https://byui.instructure.com/login/canvas');
-    await page.$eval('input#pseudonym_session_unique_id', el => el.value = ''); // Remember to remove this before commiting to Git
-    await page.$eval('input#pseudonym_session_password', el => el.value = ''); // Remember to remove this before commiting to Git
+    await page.$eval('input#pseudonym_session_unique_id', el => el.value = ''); // !!!Remember to remove this before commiting to Git!!!
+    await page.$eval('input#pseudonym_session_password', el => el.value = ''); // !!!Remember to remove this before commiting to Git!!!
     await page.click('#login_form > div.ic-Login__actions > div.ic-Form-control.ic-Form-control--login > button');
     await page.close();
     // Loop through all of the tasks. Only allow 10 concurrently

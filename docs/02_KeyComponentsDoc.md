@@ -1,34 +1,34 @@
-# Key Components Doc for <Project>
-#### *Author: Your_Name_Here*
-#### *Date: Todays Date*
+# Key Components Doc for Canvas Theme Status
+#### *Author: Cal Wilson*
+#### *Date: 4/24/2019*
 
 # Preliminary Design
 
 ## Magic Box Chart
 
-![alt text](linkToImage)
-
-<!-- Think through the process as much as makes sense, and then create a magic box chart with the whiteboard and place it here. -->
+![alt text](./magicbox.jpg)
 
 ## Explanation of Design
-<!-- Add explanation of the Magic Boxes image above. Answers to the prompts below may also be appropriate to include here. -->
+1. bin.js
+This is the normal-use method of running the program. In this method
+bin.js calls main.js. Main.js runs Puppeteer and takes screenshots
+of all the specified tasks and returns the information back to bin.js.
+The screenshots are saved to ./screenshots. Then bin.js takes care of
+creating the PDF. End method.
+
+2. bin-set-correct.js
+This method is used when the screenshots in the ./correct_screenshots
+folder need to be updated. To achieve this, bin.js calls main.js, but
+sends a filepath in as a parameter. Main.js runs Puppeteer and takes
+screenshots of all the specified tasks. These screenshots are saved
+to the ./correct_screenshots folder. End method.
 
 ### Used Libraries
-
-## Things to Consider Before Getting Project Approved
-- Are there any approved libraries that I can use? [Link to Approved Library List]
-- Are there design patterns that will help?  [Link to Design Patterns]
-- Can I design it so that it is a general tool instead of a specific solution?
-- How can it be easily expanded?
-- What does the minimum viable product look like?
-
-## Prep for Learning Phase
-- What do I need to learn
-- How will I learn it
-- What will I do to learn it (prototypes/tutorials/research time limit?)
-- What is the definition of done for my learning process
-- How do I measure the progress of learning
-- Is there a deliverable that can be created during the learning process?
+ * Puppeteer
+ * PDFkit
+ * pMap
+ * luxon
+ * fs
 
 -----
 
@@ -53,22 +53,6 @@ Explanation:
 
 *Insert Explanation here*
 
-<!-- For a future release:
-## Test Plans
-For each major function the test plan template will be as follows (in other words the template below will repeat for each test) 
-### *Insert name of component here (e.g. convertIdToCourseObject function)*
-#### Test 1: *Insert Test name here*
-Summary: 
- *Insert Test Summary Here*
- Type: *Insert Type here (Unit Test, Manual Test, Selenium/Puppeteer test (Overkill?))* 
-Procedure:
-1. *Insert Steps here*
-1. *and here*
-1. *and here*
-Expected Outcome:
-*Insert Expected Outcome here*
--->
-
 ## Test Plans
 
 ### *Insert Module Name Here*
@@ -82,12 +66,6 @@ Expected Outcome:
 
 #### *Full Design Approved By:* 
 #### *Full Design Approval Date:*
-
-
-<!-- Diagram Types:
- - Data Flow (I think this will be the most popular)
- - Structure Charts (This is really good for showing input and output of every function)
- - UML Class Diagram (a must for object oriented projects) -->
 
 
 

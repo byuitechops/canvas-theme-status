@@ -61,7 +61,8 @@ typings/
 .next
 
 # ignore screenshots
-screenshots/
+screenshots/*.png
+screenshots/*.jpg
 
 # ignore PDFs
-PDFs/
+PDFs/*.pdf

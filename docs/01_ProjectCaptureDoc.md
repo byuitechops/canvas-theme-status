@@ -18,10 +18,10 @@ features against what they are intended to look like.
 # Requirements
 
 ### General Requirements
-The tool shall generate a PDF.
-The tool shall take screenshots of web browser pages.
-The tool shall include a method of updating the intended screenshots.
-The tool shall apply a timestamp to the PDF.
+* The tool shall generate a PDF.
+* The tool shall take screenshots of web browser pages.
+* The tool shall include a method of updating the intended screenshots.
+* The tool shall apply a timestamp to the PDF.
 
 #### Destination of Outputs
 
