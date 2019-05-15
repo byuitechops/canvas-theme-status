@@ -12,8 +12,8 @@ and JS features.
 
 ## Links to Other Docs
 
-- [Project Capture](./docs/ProjectCapture.md)
-- [Key Components](./docs/KeyComponents.md)
+- [Project Capture](./docs/01_ProjectCaptureDoc.md)
+- [Key Components](./docs/02_KeyComponentsDoc.md)
 
 
 ## SetUp / How to Install
