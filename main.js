@@ -1,7 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const pMap = require('p-map');
 const pupeteer = require('puppeteer');
-const tasks = require('./tasks/tasks.js');
+const tasks = require(path.join(__dirname, '/tasks/tasks.js'));
 
 let browser;
 let filepath;
@@ -81,9 +82,9 @@ async function doModuleTasks(task) {
  *  Cal Wilson
  * 
  ************************************************/
-async function main(_filepath = './screenshots', _subdomain = 'byui') {
+async function main(_filepath = path.join(__dirname, '/screenshots'), _subdomain = 'byui') {
     // Remember to setup your auth.json file
-    const auth = readAuthFile('./auth.json');
+    const auth = readAuthFile(path.join(__dirname, '/auth.json'));
     // Set the filepath to either a parameter specified value or the default
     filepath = _filepath;
     subdomain = _subdomain;

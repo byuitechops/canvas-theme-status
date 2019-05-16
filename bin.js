@@ -1,11 +1,12 @@
 const fs = require('fs');
+const path = require('path');
 const PDFDocument = require('pdfkit');
 const {
     DateTime
 } = require('luxon');
 const {
     main
-} = require('./main.js');
+} = require(path.join(__dirname, '/main.js'));
 const doc = new PDFDocument;
 
 /************************************************
@@ -29,7 +30,7 @@ function makeOutput(completedTasks) {
     // Get the current time
     let now = DateTime.local();
     // Start creating the PDF. Name it with the current date/time
-    doc.pipe(fs.createWriteStream(`./PDFs/canvas-theme-status-${now.year}-${now.month}-${now.day}-${now.hour}-${now.minute}-${now.second}.pdf`));
+    doc.pipe(fs.createWriteStream(path.join(__dirname, `/PDFs/canvas-theme-status-${now.year}-${now.month}-${now.day}-${now.hour}-${now.minute}-${now.second}.pdf`)));
     // Put the date at the top right of the PDF
     doc.fontSize(12).text(now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS), {
         align: 'right'
@@ -45,7 +46,7 @@ function makeOutput(completedTasks) {
             align: 'center'
         });
         // Add the intended image to the page
-        doc.image(`./correct_screenshots/${completedTask.filename}`, {
+        doc.image(path.join(__dirname, `/correct_screenshots/${completedTask.filename}`), {
             fit: [500, 310],
             align: 'center'
         });
@@ -55,7 +56,7 @@ function makeOutput(completedTasks) {
             align: 'center'
         });
         // Add the current image to the page
-        doc.image(`./screenshots/${completedTask.filename}`, {
+        doc.image(path.join(__dirname, `/screenshots/${completedTask.filename}`), {
             fit: [500, 310],
             align: 'center'
         });
