@@ -38,7 +38,7 @@ function makeOutput(completedTasks) {
     // Loop through all of the completed tasks and create a page for each task
     completedTasks.forEach((completedTask, i) => {
         // Add the title to the top of the page
-        doc.fontSize(25).text(`Module: ${completedTask.title}`, {
+        doc.fontSize(25).text(completedTask.title, {
             align: 'center'
         });
         // Add intended under the title
