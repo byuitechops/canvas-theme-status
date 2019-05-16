@@ -20,6 +20,7 @@ let delay = require('../helper_scripts/delay.js');
  * 
  ************************************************/
 async function carouselSlickjsSecond(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/carousel-slickjs`;
     // Go to the page
     await page.goto(taskObject.url);
     // Click the next button on the carousel
@@ -38,7 +39,8 @@ let taskObject = {
     doTask: carouselSlickjsSecond,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/carousel-slickjs'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

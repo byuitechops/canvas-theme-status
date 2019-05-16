@@ -18,6 +18,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function breadcrumb(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/breadcrumb`;
     // Go to the page
     await page.goto(taskObject.url);
     // Take a screenshot
@@ -32,7 +33,8 @@ let taskObject = {
     doTask: breadcrumb,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/breadcrumb'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

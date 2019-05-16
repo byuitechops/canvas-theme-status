@@ -21,6 +21,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function stickyNavigation(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/sticky-navigation`;
     // Go to the page
     await page.goto(taskObject.url);
     // Click the footer at the bottom of the page to imitate scrolling to the bottom
@@ -37,7 +38,8 @@ let taskObject = {
     doTask: stickyNavigation,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/sticky-navigation'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

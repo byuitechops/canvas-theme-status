@@ -19,6 +19,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function carouselSlickjsFirst(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/carousel-slickjs`;
     // Go to the page
     await page.goto(taskObject.url);
     // Take a screenshot of the page
@@ -33,7 +34,8 @@ let taskObject = {
     doTask: carouselSlickjsFirst,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/carousel-slickjs'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

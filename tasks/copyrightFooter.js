@@ -19,6 +19,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function copyrightFooter(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/copyright-footer`;
     // Go to the page
     await page.goto(taskObject.url);
     // Take a screenshot of the page
@@ -33,7 +34,8 @@ let taskObject = {
     doTask: copyrightFooter,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/copyright-footer'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

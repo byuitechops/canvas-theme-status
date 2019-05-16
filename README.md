@@ -20,6 +20,8 @@ and JS features.
 1. git clone https://github.com/byuitechops/canvas-theme-status
 2. cd ./canvas-theme-status
 3. npm i
+4. Create an auth.json file, structure it exactly as the example below
+{username: '', password: ''}
 
 ## Important Notes
 Before commiting to version control make sure to remove all keys/cookies/usernames/passwords.

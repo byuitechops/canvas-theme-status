@@ -19,6 +19,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function prismHighlight(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/prism-highlight`;
     // Go to the page
     await page.goto(taskObject.url);
     // Take a screenshot of the page
@@ -33,7 +34,8 @@ let taskObject = {
     doTask: prismHighlight,
     filepath: '',
     fullPage: true,
-    url: 'https://byui.instructure.com/courses/37748/pages/prism-highlight'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

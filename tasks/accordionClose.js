@@ -20,6 +20,7 @@ let delay = require('../helper_scripts/delay');
  * 
  ************************************************/
 async function accordionClose(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/accordion`;
     // Go to the page
     await page.goto(taskObject.url);
     // Click the accordion to open it
@@ -42,7 +43,8 @@ let taskObject = {
     doTask: accordionClose,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/accordion'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;
