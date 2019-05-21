@@ -10,6 +10,7 @@ const {
     main
 } = require(path.join(__dirname, '/main.js'));
 const doc = new PDFDocument;
+const pdfWriteLocation = '/PDFs';
 
 /************************************************
  *                  makeOutput
@@ -32,7 +33,7 @@ function makeOutput(completedTasks) {
     // Get the current time
     let now = DateTime.local();
     // Start creating the PDF. Name it with the current date/time
-    doc.pipe(fs.createWriteStream(path.join(__dirname, `/PDFs/canvas-theme-status-${now.year}-${now.month}-${now.day}-${now.hour}-${now.minute}-${now.second}.pdf`)));
+    doc.pipe(fs.createWriteStream(path.join(__dirname, `${pdfWriteLocation}/canvas-theme-status-${now.year}-${now.month}-${now.day}-${now.hour}-${now.minute}-${now.second}.pdf`)));
     // Put the date at the top right of the PDF
     doc.fontSize(12).text(now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS), {
         align: 'right'
@@ -69,7 +70,7 @@ function makeOutput(completedTasks) {
     });
     // Finalize and write the document
     doc.end();
-    console.log('PDF Written');
+    console.log('Writing PDF Document. The program will close when completed.');
 }
 
 /************************************************
