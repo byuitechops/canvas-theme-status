@@ -5,9 +5,8 @@
   "description": "Checks the status of the current canvas theme against the desired canvas theme. ",
   "main": "main.js",
   "bin": {
-    "validate": "./bin.js",
-    "set-correct": "./bin-set-correct.js",
-    "test-canvas": "./bin-test-canvas.js"
+    "validate-canvas-theme-status": "./bin.js",
+    "validate-canvas-test-theme-status": "./bin-test-canvas.js"
   },
   "scripts": {
     "start": "node bin.js",
