@@ -1,9 +1,34 @@
+const fs = require('fs');
+const path = require('path');
 const pMap = require('p-map');
 const pupeteer = require('puppeteer');
-const tasks = require('./tasks/tasks.js');
+const tasks = require(path.join(__dirname, '/tasks/tasks.js'));
 
 let browser;
 let filepath;
+let subdomain;
+
+
+/************************************************
+ *                readAuthFile
+ * 
+ * Parameters:
+ *  1. filepath: String
+ * 
+ * Description:
+ *  Gets the user's username and password for
+ *  Puppeteer to use to log-in to Canvas.
+ * 
+ * Return Type:
+ *  Object
+ * 
+ * Author(s):
+ *  Cal Wilson
+ * 
+ ************************************************/
+function readAuthFile(filepath) {
+    return JSON.parse(fs.readFileSync(filepath, 'utf8'));
+}
 
 /************************************************
  *                doModuleTasks
@@ -34,6 +59,7 @@ async function doModuleTasks(task) {
     });
     // Update the task object's filepath
     task.filepath = filepath;
+    task.subdomain = subdomain;
     // Do the task
     await task.doTask(page);
 }
@@ -56,18 +82,21 @@ async function doModuleTasks(task) {
  *  Cal Wilson
  * 
  ************************************************/
-async function main(_filepath = './screenshots') {
+async function main(_filepath = path.join(__dirname, '/screenshots'), _subdomain = 'byui') {
+    // Remember to setup your auth.json file
+    const auth = readAuthFile(path.join(__dirname, '/auth.json'));
     // Set the filepath to either a parameter specified value or the default
     filepath = _filepath;
+    subdomain = _subdomain;
     // Start Pupeteer
     browser = await pupeteer.launch({
         headless: false
     });
     // Log-in to Canvas
     const page = await browser.newPage();
-    await page.goto('https://byui.instructure.com/login/canvas');
-    await page.$eval('input#pseudonym_session_unique_id', el => el.value = ''); // !!!Remember to remove this before commiting to Git!!!
-    await page.$eval('input#pseudonym_session_password', el => el.value = ''); // !!!Remember to remove this before commiting to Git!!!
+    await page.goto(`https://${subdomain}.instructure.com/login/canvas`);
+    await page.$eval('input#pseudonym_session_unique_id', (el, auth) => el.value = auth.username, auth);
+    await page.$eval('input#pseudonym_session_password', (el, auth) => el.value = auth.password, auth);
     await page.click('#login_form > div.ic-Login__actions > div.ic-Form-control.ic-Form-control--login > button');
     await page.close();
     // Loop through all of the tasks. Only allow 10 concurrently

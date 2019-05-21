@@ -18,6 +18,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function homepage(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/homepage`;
     // Go to the page
     await page.goto(taskObject.url);
     // Take the screenshot
@@ -32,7 +33,8 @@ let taskObject = {
     doTask: homepage,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/homepage'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

@@ -18,6 +18,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function tabs(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/tabs`;
     // Go to the page
     await page.goto(taskObject.url);
     // Click the second tab
@@ -34,7 +35,8 @@ let taskObject = {
     doTask: tabs,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/tabs'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

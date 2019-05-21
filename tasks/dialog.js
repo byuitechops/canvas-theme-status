@@ -19,6 +19,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function dialog(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/dialog`;
     // Go to the page
     await page.goto(taskObject.url);
     // Click the dialog button
@@ -35,7 +36,8 @@ let taskObject = {
     doTask: dialog,
     filepath: '',
     fullPage: false,
-    url: 'https://byui.instructure.com/courses/37748/pages/dialog'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

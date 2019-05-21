@@ -1,11 +1,18 @@
 {
   "name": "canvas-theme-status",
   "version": "1.0.0",
+  "preferGlobal": true,
   "description": "Checks the status of the current canvas theme against the desired canvas theme. ",
   "main": "main.js",
+  "bin": {
+    "validate": "./bin.js",
+    "set-correct": "./bin-set-correct.js",
+    "test-canvas": "./bin-test-canvas.js"
+  },
   "scripts": {
     "start": "node bin.js",
     "set-correct": "node bin-set-correct.js",
+    "test-canvas": "node bin-test-canvas.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

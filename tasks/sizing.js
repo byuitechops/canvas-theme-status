@@ -19,6 +19,7 @@ let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
  * 
  ************************************************/
 async function sizing(page) {
+    taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/sizing`;
     // Go to the page
     await page.goto(taskObject.url);
     // Take a screenshot of the page
@@ -33,7 +34,8 @@ let taskObject = {
     doTask: sizing,
     filepath: '',
     fullPage: true,
-    url: 'https://byui.instructure.com/courses/37748/pages/sizing'
+    subdomain: '',
+    url: ''
 };
 
 module.exports = taskObject;

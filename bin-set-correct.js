@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
+const path = require('path');
 const {
     main
-} = require('./main.js');
+} = require(path.join(__dirname, '/main.js'));
 
 function handleError(error) {
     console.error(error);
@@ -25,7 +28,7 @@ function handleError(error) {
  ************************************************/
 async function start() {
     try {
-        await main('./correct_screenshots');
+        await main(path.join(__dirname, '/correct_screenshots'));
     } catch (error) {
         handleError(error);
     }

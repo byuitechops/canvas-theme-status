@@ -32,7 +32,7 @@ function makeOutput(completedTasks) {
     // Get the current time
     let now = DateTime.local();
     // Start creating the PDF. Name it with the current date/time
-    doc.pipe(fs.createWriteStream(path.join(__dirname, `/PDFs/canvas-theme-status-${now.year}-${now.month}-${now.day}-${now.hour}-${now.minute}-${now.second}.pdf`)));
+    doc.pipe(fs.createWriteStream(path.join(__dirname, `/PDFs/test-canvas-theme-status-${now.year}-${now.month}-${now.day}-${now.hour}-${now.minute}-${now.second}.pdf`)));
     // Put the date at the top right of the PDF
     doc.fontSize(12).text(now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS), {
         align: 'right'
@@ -112,7 +112,7 @@ function handleError(error) {
  ************************************************/
 async function start() {
     try {
-        var output = await main();
+        var output = await main(path.join(__dirname, '/screenshots'), 'byui.test');
         makeOutput(output);
     } catch (error) {
         handleError(error);
