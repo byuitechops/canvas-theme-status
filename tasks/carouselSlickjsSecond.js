@@ -23,10 +23,13 @@ async function carouselSlickjsSecond(page) {
     taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/carousel-slickjs`;
     // Go to the page
     await page.goto(taskObject.url);
-    // Click the next button on the carousel
-    await page.click('#wiki_page_show > div.show-content.user_content.clearfix.enhanced > div > div > button.slick-next.slick-arrow');
-    // Wait for the CSS animation
-    await delay('1000');
+    // Check if the selector exists
+    if (await page.$('#wiki_page_show > div.show-content.user_content.clearfix.enhanced > div > div > button.slick-next.slick-arrow') !== null) {
+        // Click the next button on the carousel
+        await page.click('#wiki_page_show > div.show-content.user_content.clearfix.enhanced > div > div > button.slick-next.slick-arrow');
+        // Wait for the CSS animation
+        await delay('1000');
+    }
     // Take the screenshot of the page
     await takeScreenshot(page, taskObject);
     // Close the page/tab

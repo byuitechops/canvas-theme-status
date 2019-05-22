@@ -17,19 +17,33 @@ and JS features.
 
 
 ## SetUp / How to Install
+### Globally
+1. npm i -g https://github.com/byuitechops/canvas-theme-status
+2. Create an auth.json file in the globally installed folder, structure it exactly like this: {"username": "", "password": ""}
+3. Fill in a username and password in the auth.json file.
+### Locally
 1. git clone https://github.com/byuitechops/canvas-theme-status
 2. cd ./canvas-theme-status
 3. npm i
-4. Create an auth.json file, structure it exactly like this: {username: '', password: ''}
+4. Create an auth.json file, structure it exactly like this: {"username": "", "password": ""}
+5. Fill in a username and password in the auth.json file.
 
 ## Important Notes
 Before commiting to version control make sure to remove all keys/cookies/usernames/passwords.
 
 ## How to Use
-There are two different ways to use this tool
+### Globally
+There are two different ways to use this tool globally
+1. validate-canvas-theme-status
+2. validate-canvas-test-theme-status
+* The first method is the most commonly used method. It creates a PDF used to verify the integrity of the
+CSS and JS files.
+* The second method does the exact same thing as the first, but it runs the validation script on the canvas
+test account.
+### Locally
+There are two different ways to use this tool locally
 1. npm start
 2. npm run set-correct
-
 * The first method is the most commonly used method. It creates a PDF used to verify the integrity of the
 CSS and JS files.
 * The second method used only when the correct pictures need to be updated. This method takes screenshots

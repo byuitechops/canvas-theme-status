@@ -23,15 +23,18 @@ async function accordionClose(page) {
     taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/accordion`;
     // Go to the page
     await page.goto(taskObject.url);
-    // Click the accordion to open it
-    await page.click('#accordion > h3');
-    // Wait for the CSS animation
-    await delay('1000');
-    // Click the accordion again to close it
-    await page.click('#accordion > h3');
-    // Wait for the CSS animation
-    await delay('1000');
-    // Take a screenshot
+    // Check if the selector exists
+    if (await page.$('#accordion > h3') !== null) {
+        // Click the accordion to open it
+        await page.click('#accordion > h3');
+        // Wait for the CSS animation
+        await delay('1000');
+        // Click the accordion again to close it
+        await page.click('#accordion > h3');
+        // Wait for the CSS animation
+        await delay('1000');
+        // Take a screenshot
+    }
     await takeScreenshot(page, taskObject);
     // Close the page/tab
     await page.close();
