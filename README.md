@@ -19,12 +19,14 @@ and JS features.
 ## SetUp / How to Install
 ### Globally
 1. npm i -g https://github.com/byuitechops/canvas-theme-status
-2. Create an auth.json file in the globally installed folder, structure it exactly like this: {username: '', password: ''}
+2. Create an auth.json file in the globally installed folder, structure it exactly like this: {"username": "", "password": ""}
+3. Fill in a username and password in the auth.json file.
 ### Locally
 1. git clone https://github.com/byuitechops/canvas-theme-status
 2. cd ./canvas-theme-status
 3. npm i
-4. Create an auth.json file, structure it exactly like this: {username: '', password: ''}
+4. Create an auth.json file, structure it exactly like this: {"username": "", "password": ""}
+5. Fill in a username and password in the auth.json file.
 
 ## Important Notes
 Before commiting to version control make sure to remove all keys/cookies/usernames/passwords.
