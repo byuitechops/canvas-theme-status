@@ -22,8 +22,11 @@ async function dialog(page) {
     taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/dialog`;
     // Go to the page
     await page.goto(taskObject.url);
-    // Click the dialog button
-    await page.click('#link_1');
+    // Check if the selector exists
+    if (await page.$('#link_1') !== null) {
+        // Click the dialog button
+        await page.click('#link_1');
+    }
     // Take a screenshot of the page
     await takeScreenshot(page, taskObject);
     // Close the page/tab

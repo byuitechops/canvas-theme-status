@@ -21,8 +21,11 @@ async function tabs(page) {
     taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/tabs`;
     // Go to the page
     await page.goto(taskObject.url);
-    // Click the second tab
-    await page.click('#ui-id-2');
+    // Check if the second tab selector exists
+    if (await page.$('#ui-id-2') !== null) {
+        // Click the second tab
+        await page.click('#ui-id-2');
+    }
     // Take a screenshot of the page
     await takeScreenshot(page, taskObject);
     // Close the page/tab

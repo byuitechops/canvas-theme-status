@@ -1,4 +1,5 @@
 let takeScreenshot = require('../helper_scripts/takeScreenshot.js');
+let delay = require('../helper_scripts/delay');
 
 /************************************************
  *                accordionOpen
@@ -22,8 +23,12 @@ async function accordionOpen(page) {
     taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/accordion`;
     // Go to the page
     await page.goto(taskObject.url);
-    // Click the accordion to open it
-    await page.click('#accordion > h3');
+    // Check if the selector exists
+    if (await page.$('#accordion > h3') !== null) {
+        // Click the accordion to open it
+        await page.click('#accordion > h3');
+        await delay('1000');
+    }
     // Take a screenshot
     await takeScreenshot(page, taskObject);
     // Close the page/tab

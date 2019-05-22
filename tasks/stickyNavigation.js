@@ -24,8 +24,11 @@ async function stickyNavigation(page) {
     taskObject.url = `https://${taskObject.subdomain}.instructure.com/courses/37748/pages/sticky-navigation`;
     // Go to the page
     await page.goto(taskObject.url);
-    // Click the footer at the bottom of the page to imitate scrolling to the bottom
-    await page.click('#byui-copyright');
+    // Check if the selector exists
+    if (await page.$('#wiki_page_show > div:nth-child(3) > div.module-sequence-footer > div') !== null) {
+        // Imitate scrolling before taking the screenshot by clicking the bottom of the page
+        await page.click('#wiki_page_show > div:nth-child(3) > div.module-sequence-footer > div');
+    }
     // Take a screenshot
     await takeScreenshot(page, taskObject);
     // Close the page/tab
